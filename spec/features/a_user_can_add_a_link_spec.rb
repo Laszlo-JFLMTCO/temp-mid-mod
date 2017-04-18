@@ -52,6 +52,7 @@ describe 'User adding a new link', js:true do
       test_title = 'Test title'
       test_invalid_url = 'invalidURL'
       test_valid_url = 'https://urlockbox-laszlo.herokuapp.com'
+
       fill_in 'link[title]', with: test_title
       fill_in 'link[url]', with: test_invalid_url
       click_on 'Save Link'
@@ -60,7 +61,6 @@ describe 'User adding a new link', js:true do
       fill_in 'link[url]', with: test_valid_url
       click_on 'Save Link'
 
-      expect(page).to have_current_path(links_path)
       expect(page).to have_current_path(links_path)
       expect(page).to have_content(test_title)
       expect(page).to have_content(test_valid_url)

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "links#index"
+  root :to => redirect(path: '/links')
 
   get 'signin' => 'sessions#new'
   post 'signin' => 'sessions#create'
@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   get 'signup' => 'users#new'
   post 'signup' => 'users#create'
-
 
   resources :links, only: [:index, :create, :update]
   put 'updatelink/:id' => 'links#updatelink'

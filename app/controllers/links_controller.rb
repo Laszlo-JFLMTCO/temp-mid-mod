@@ -10,6 +10,7 @@ class LinksController < ApplicationController
   def create
     @link = Link.new(link_params)
     @link.user_id = session[:user_id].to_i
+    @top10 = top10_links
     if !@link.save
       flash[:error] = @link.errors.full_messages
       @links = current_user_links
